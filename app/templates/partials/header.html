@@ -1,0 +1,13 @@
+<header class="site-header">
+    <a class="brand" href="/" aria-label="{{ site.name }}, inicio">
+        <span class="brand-mark" aria-hidden="true">{{ site.name[0] }}</span>
+        <span>
+            <strong>{{ site.name }}</strong>
+            <small>{{ site.address.city if site.address else '' }}</small>
+        </span>
+    </a>
+    <nav aria-label="Navegacion principal">
+        <a href="/">Inicio</a>
+        <a class="nav-action" href="/servicios">Servicios</a>
+    </nav>
+</header>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="{{ site.language | default('es') }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ theme.secondary }}">
+    <meta name="description" content="{{ page_description }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="icon" href="{{ url_for('static', path='favicon.svg') }}" type="image/svg+xml">
+    <meta property="og:locale" content="{{ site.locale | default('es_ES') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <meta property="og:image" content="{{ absolute_url(site_url, seo.og_image) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page_title }}">
+    <meta name="twitter:description" content="{{ page_description }}">
+    <meta name="twitter:image" content="{{ absolute_url(site_url, seo.og_image) }}">
+    <title>{{ page_title }}</title>
+    <script type="application/ld+json">{{ structured_data | tojson }}</script>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/site.css') }}">
+</head>
+<body style="--primary: {{ theme.primary }}; --secondary: {{ theme.secondary }}; --accent: {{ theme.accent }};">
+    {% include 'partials/header.html' %}
+    {% block content %}{% endblock %}
+    {% include 'partials/footer.html' %}
+</body>
+</html>

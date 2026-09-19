@@ -1,0 +1,67 @@
+{
+  "site": {
+    "name": "Reformas Garcia",
+    "business_type": "HomeAndConstructionBusiness",
+    "description": "Empresa de reformas integrales en Valdemoro y alrededores.",
+    "url": "http://localhost:8000",
+    "language": "es",
+    "locale": "es_ES",
+    "phone": "+34910000000",
+    "email": "hola@reformasgarcia.example",
+    "address": {
+      "street": "Calle Mayor 10",
+      "city": "Valdemoro",
+      "region": "Madrid",
+      "postal_code": "28340",
+      "country": "ES"
+    },
+    "service_area": ["Valdemoro", "Pinto", "Ciempozuelos"],
+    "social": [],
+    "map_url": "https://www.google.com/maps"
+  },
+  "theme": {
+    "primary": "#d97706",
+    "secondary": "#172033",
+    "accent": "#f5f1e8",
+    "style": "professional"
+  },
+  "seo": {
+    "title": "Reformas en Valdemoro | Reformas Garcia",
+    "description": "Reformas de banos, cocinas e interiores en Valdemoro y alrededores.",
+    "og_image": "/static/images/og-image.svg"
+  },
+  "home": {
+    "eyebrow": "Reformas en Valdemoro",
+    "title": "Reformas bien hechas, sin complicaciones",
+    "description": "Realizamos reformas de banos, cocinas e interiores con presupuesto claro y trato cercano.",
+    "primary_action": {
+      "type": "phone",
+      "label": "Llamar ahora",
+      "value": "+34910000000"
+    },
+    "secondary_action": {
+      "type": "email",
+      "label": "Pedir presupuesto",
+      "value": "hola@reformasgarcia.example"
+    },
+    "benefits": [
+      {"title": "Presupuesto claro", "description": "Te explicamos el trabajo antes de empezar."},
+      {"title": "Trato directo", "description": "Hablas con la persona responsable del proyecto."},
+      {"title": "Trabajo local", "description": "Trabajamos en Valdemoro y municipios cercanos."}
+    ],
+    "faqs": [
+      {"question": "En que zonas trabajais?", "answer": "Trabajamos en Valdemoro, Pinto y Ciempozuelos."},
+      {"question": "Como solicito un presupuesto?", "answer": "Puedes llamarnos o escribirnos por email para contarnos tu proyecto."}
+    ]
+  },
+  "services_page": {
+    "slug": "servicios",
+    "title": "Servicios de reformas",
+    "description": "Conoce nuestros principales servicios de reformas.",
+    "services": [
+      {"title": "Reformas de bano", "description": "Renovacion completa de banos, sanitarios, revestimientos y fontaneria."},
+      {"title": "Reformas de cocina", "description": "Diseno y renovacion de cocinas funcionales y duraderas."},
+      {"title": "Reformas interiores", "description": "Pintura, suelos, distribucion y mejoras generales de viviendas."}
+    ]
+  }
+}

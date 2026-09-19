@@ -1,0 +1,10 @@
+<footer class="site-footer">
+    <div>
+        <strong>{{ site.name }}</strong>
+        {% if site.address %}<span>{{ site.address.street }}, {{ site.address.city }}</span>{% endif %}
+    </div>
+    <div class="footer-contact">
+        {% if site.phone %}<a href="tel:{{ site.phone }}">{{ site.phone }}</a>{% endif %}
+        {% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+    </div>
+</footer>
