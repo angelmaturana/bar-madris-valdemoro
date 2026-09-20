@@ -63,7 +63,7 @@ h3 { margin-bottom: 10px; color: var(--white); font-size: 1.35rem; font-weight: 
 .benefits article { padding-top: 18px; border-top: 2px solid var(--accent); }
 .number { display: block; margin-bottom: 24px; color: var(--primary); font: 700 .76rem Arial, sans-serif; }
 .benefits p, .service-grid p, .menu-item p { margin-bottom: 0; color: var(--muted); }
-.dark-band { background: #211d16; }
+.dark-band { background: #211d16; padding-left: 24px; padding-right: 24px; }
 .dark-band .eyebrow, .dark-band .text-link { color: var(--primary); }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
 .text-link { font: 700 .8rem Arial, sans-serif; text-decoration: underline; }
