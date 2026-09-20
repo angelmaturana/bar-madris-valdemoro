@@ -158,3 +158,9 @@ async def not_found(request: Request, exc):
     context = page_context(request, str(request.url.path), "Pagina no encontrada", "La pagina solicitada no existe.")
     context["request"] = request
     return templates.TemplateResponse(request=request, name="404.html", context=context, status_code=404)
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", "8000")))
