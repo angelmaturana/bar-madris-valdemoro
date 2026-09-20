@@ -9,7 +9,7 @@ a:hover { color: var(--primary); }
 .brand { display: flex; align-items: center; gap: 12px; }
 
 /* LOGO Y TEXTO AUMENTADOS */
-.brand-logo { width: 150px; object-fit: contain; background: var(--white); border: 2px solid var(--primary); }
+.brand-logo { width: 150px; object-fit: contain; background: var(--white); border: 0px solid var(--primary); }
 .brand strong { display: block; color: var(--white); font-size: 1.35rem; }
 .brand small { display: block; color: var(--muted); font: .9rem Arial, sans-serif; }
 
