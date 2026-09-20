@@ -62,13 +62,13 @@
       {
         "nombre": "Vegetal",
         "precio": 4.00,
-        "detalle": "Tomate, lechuga, atún y mayonesa",
+        "detalle": "Tomate, lechuga, atún y mahonesa",
         "alergenos": null
       },
       {
         "nombre": "Especial",
         "precio": 7.00,
-        "detalle": "York, queso, tomate, lechuga, atún, mayonesa y huevo",
+        "detalle": "York, queso, tomate, lechuga, atún, mahonesa y huevo",
         "alergenos": null
       }
     ],
@@ -166,7 +166,7 @@
         "alergenos": null
       },
       {
-        "nombre": "Papas, Huevos y Beicon",
+        "nombre": "Papas, Huevos y Beicón",
         "precio": 9.00,
         "alergenos": null
       },
@@ -226,7 +226,7 @@
         "alergenos": null
       },
       {
-        "nombre": "Beicon",
+        "nombre": "Beicón",
         "precio_bocadillo": 6.00,
         "precio_montado": 4.00,
         "alergenos": null
@@ -254,7 +254,10 @@
         "precio_bocadillo": 6.00,
         "precio_montado": 4.00,
         "alergenos": null
-      },
+      }
+    ],
+
+    "paleto": [
       {
         "nombre": "Paleto",
         "precio": 10.00,

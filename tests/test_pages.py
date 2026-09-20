@@ -18,7 +18,7 @@ def test_menu_page_is_indexable():
     response = client.get("/carta")
     assert response.status_code == 200
     assert "Carta de Bar Madris" in response.text
-    assert "Patatas Bravas 3 Salsas" in response.text
+    assert "Papas Bravas" in response.text
 
 
 def test_sitemap_contains_public_pages():

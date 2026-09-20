@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <main>
-    <section class="inner-hero page-width"><p class="eyebrow">{{ site.name }} · {{ carta.restaurante.eslogan }}</p><h1>Carta de Bar Madris</h1><p class="lead">Tapas, raciones, cervezas, vinos, cafés y desayunos en Valdemoro.</p></section>
+    <section class="inner-hero page-width"><p class="eyebrow">{{ site.name }} · {{ carta.restaurante.eslogan }}</p><h1>Carta de Bar Madris</h1><p class="lead">Hamburguesas, sándwiches, tostas, raciones y bocadillos en Valdemoro.</p></section>
     <section class="section page-width menu-page" aria-labelledby="menu-title">
         <div class="menu-intro"><h2 id="menu-title">Para pedir y compartir</h2><p>{{ carta.restaurante.direccion }}</p></div>
         {% for section in menu_sections %}
         <section class="menu-section" aria-labelledby="menu-{{ loop.index }}"><h3 id="menu-{{ loop.index }}">{{ section.name | replace('_', ' ') | title }}</h3>{% if section.note %}<p class="menu-note">{{ section.note }}</p>{% endif %}
-            {% for group_name, items in section.groups %}{% if group_name %}<h4 class="menu-group">{{ group_name | replace('_', ' ') | title }}</h4>{% endif %}{% for item in items %}<article class="menu-item"><div><h4>{{ item.nombre }}</h4>{% if item.detalle %}<p>{{ item.detalle }}</p>{% endif %}</div><strong>{{ '%.2f'|format(item.precio) }} €</strong></article>{% endfor %}{% endfor %}
+            {% for group_name, items in section.groups %}{% if group_name %}<h4 class="menu-group">{{ group_name | replace('_', ' ') | title }}</h4>{% endif %}{% for item in items %}<article class="menu-item"><div><h4>{{ item.nombre }}</h4>{% if item.detalle %}<p>{{ item.detalle }}</p>{% endif %}</div><strong>{% if item.precio is defined %}{{ '%.2f'|format(item.precio) }} €{% elif item.precio_bocadillo is defined %}{{ '%.2f'|format(item.precio_bocadillo) }} € / {{ '%.2f'|format(item.precio_montado) }} €{% endif %}</strong></article>{% endfor %}{% endfor %}
         </section>{% endfor %}
         <p class="allergen-note">Consulta al personal sobre alérgenos antes de pedir. La carta identifica los alérgenos disponibles en cada elaboración cuando están indicados.</p>
     </section>
