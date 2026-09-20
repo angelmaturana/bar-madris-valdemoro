@@ -55,6 +55,8 @@ h3 { margin-bottom: 10px; color: var(--white); font-size: 1.35rem; font-weight: 
 .hero-aside strong { font-size: 1.08rem; line-height: 1.5; }
 .hero-aside span:not(.aside-label) { color: var(--muted); font-size: .82rem; }
 .hero-aside a { color: var(--primary); font-size: .8rem; text-decoration: underline; }
+.hero-aside a:hover,                     /* >>> VERUBICACION -> hover blanco */
+.hero-aside a:focus-visible { color: white; }
 
 .section { padding-top: 90px; padding-bottom: 90px; }
 .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -93,7 +95,7 @@ h3 { margin-bottom: 10px; color: var(--white); font-size: 1.35rem; font-weight: 
 .site-footer span { margin-top: 4px; }
 .footer-promo { max-width: 320px; text-align: right; }
 .footer-promo a { display: inline-block; margin-top: 5px; color: var(--primary); font-weight: 700; text-decoration: underline; }
-.footer-promo a:hover,                     /* >>> NUEVO: hover SEO Valdemoro */
+.footer-promo a:hover,                     /* >>> SEO Valdemoro -> hover var(--muted) */
 .footer-promo a:focus-visible { color: var(--muted); }
 
 /* >>> NUEVO: 'Ver Carta' con el mismo estilo que 'SEO Valdemoro' */
