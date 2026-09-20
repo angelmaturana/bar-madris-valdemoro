@@ -108,8 +108,8 @@ async def menu(request: Request):
     context = page_context(
         request,
         "/carta",
-        "Carta de Bar Madris | Tapas, raciones y desayunos",
-        "Consulta la carta de Bar Madris en Valdemoro: tapas, raciones, cervezas, vinos, cafés y desayunos.",
+         "Carta de Bar Madris | Hamburguesas, raciones y bocadillos",
+         "Consulta la carta de Bar Madris en Valdemoro: hamburguesas, sándwiches, tostas, raciones y bocadillos.",
         "Menu",
     )
     context.update({"request": request, "carta": carta_data, "menu_sections": menu_sections})
