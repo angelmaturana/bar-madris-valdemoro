@@ -9,9 +9,9 @@ from fastapi.responses import PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from .config import load_site, public_site_url
-from .keepalive import KeepAliveClient, keep_alive_config
-from .seo import absolute_url, faq_schema, page_schema
+from config import load_site, public_site_url
+from keepalive import KeepAliveClient, keep_alive_config
+from seo import absolute_url, faq_schema, page_schema
 
 
 logging.basicConfig(level=logging.INFO)
