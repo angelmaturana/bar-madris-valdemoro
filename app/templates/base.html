@@ -7,9 +7,9 @@
     <meta name="description" content="{{ page_description }}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ canonical_url }}">
-    <link rel="icon" href="{{ url_for('static', path='favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ absolute_url(site_url, '/static/images/favicon.svg') }}" type="image/svg+xml">
     <meta property="og:locale" content="{{ site.locale | default('es_ES') }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="restaurant">
     <meta property="og:site_name" content="{{ site.name }}">
     <meta property="og:title" content="{{ page_title }}">
     <meta property="og:description" content="{{ page_description }}">

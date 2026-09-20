@@ -15,6 +15,9 @@ def business_schema(site: dict[str, Any], site_url: str) -> dict[str, Any]:
         "description": site["description"],
         "url": site_url,
     }
+    for key in ("logo", "image"):
+        if site.get(key):
+            schema[key] = absolute_url(site_url, site[key])
     for key in ("phone", "email"):
         if site.get(key):
             schema[key] = site[key]
@@ -32,6 +35,10 @@ def business_schema(site: dict[str, Any], site_url: str) -> dict[str, Any]:
         schema["areaServed"] = [{"@type": "City", "name": area} for area in site["service_area"]]
     if site.get("map_url"):
         schema["hasMap"] = site["map_url"]
+    if site.get("opening_hours"):
+        schema["openingHours"] = site["opening_hours"]
+    if site.get("amenities"):
+        schema["amenityFeature"] = [{"@type": "LocationFeatureSpecification", "name": item, "value": True} for item in site["amenities"]]
     if site.get("social"):
         schema["sameAs"] = site["social"]
     return schema

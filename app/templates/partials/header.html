@@ -1,13 +1,14 @@
 <header class="site-header">
     <a class="brand" href="/" aria-label="{{ site.name }}, inicio">
-        <span class="brand-mark" aria-hidden="true">{{ site.name[0] }}</span>
+        <img class="brand-logo" src="{{ absolute_url(site_url, site.logo) }}" alt="{{ site.alternate_name }}">
         <span>
             <strong>{{ site.name }}</strong>
-            <small>{{ site.address.city if site.address else '' }}</small>
+            <small>{{ site.alternate_name }}</small>
         </span>
     </a>
     <nav aria-label="Navegacion principal">
         <a href="/">Inicio</a>
-        <a class="nav-action" href="/servicios">Servicios</a>
+        <a href="/carta">Carta</a>
+        <a class="nav-action" href="tel:{{ site.phone }}">Llamar</a>
     </nav>
 </header>

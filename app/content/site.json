@@ -1,67 +1,46 @@
 {
   "site": {
-    "name": "Reformas Garcia",
-    "business_type": "HomeAndConstructionBusiness",
-    "description": "Empresa de reformas integrales en Valdemoro y alrededores.",
-    "url": "http://localhost:8000",
+    "name": "Bar Madris",
+    "alternate_name": "Real Café Madris",
+    "business_type": "BarOrPub",
+    "description": "Bar de tapas y cafetería en Valdemoro, conocido por sus raciones, desayunos, terraza y ambiente para disfrutar del fútbol.",
     "language": "es",
     "locale": "es_ES",
-    "phone": "+34910000000",
-    "email": "hola@reformasgarcia.example",
-    "address": {
-      "street": "Calle Mayor 10",
-      "city": "Valdemoro",
-      "region": "Madrid",
-      "postal_code": "28340",
-      "country": "ES"
-    },
-    "service_area": ["Valdemoro", "Pinto", "Ciempozuelos"],
-    "social": [],
-    "map_url": "https://www.google.com/maps"
+    "phone": "+34918080007",
+    "address": {"street": "Calle de la Guardia Civil, 5", "city": "Valdemoro", "region": "Madrid", "postal_code": "28341", "country": "ES"},
+    "service_area": ["Valdemoro", "zona Parque de las Víctimas del Terrorismo", "zona Guardia Civil"],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Calle+de+la+Guardia+Civil%2C+5%2C+Valdemoro",
+    "logo": "/static/images/logo.png",
+    "image": "/static/images/bar-madris-valdemoro.png",
+    "amenities": ["Asientos al aire libre", "Accesible"],
+    "opening_hours": "Lunes a viernes: 06:30/07:00 a 00:00. Sábados y domingos: 08:00 a 00:00."
   },
   "theme": {
-    "primary": "#d97706",
-    "secondary": "#172033",
-    "accent": "#f5f1e8",
-    "style": "professional"
+    "primary": "#f4c542",
+    "secondary": "#11100d",
+    "accent": "#e6292e",
+    "style": "nocturnal-cafe"
   },
   "seo": {
-    "title": "Reformas en Valdemoro | Reformas Garcia",
-    "description": "Reformas de banos, cocinas e interiores en Valdemoro y alrededores.",
+    "title": "Bar Madris en Valdemoro | Tapas, desayunos y fútbol",
+    "description": "Bar Madris, Real Café Madris: bar de tapas en Valdemoro con desayunos, cafés, cañas, raciones, terraza y ambiente para ver el fútbol.",
     "og_image": "/static/images/og-image.svg"
   },
   "home": {
-    "eyebrow": "Reformas en Valdemoro",
-    "title": "Reformas bien hechas, sin complicaciones",
-    "description": "Realizamos reformas de banos, cocinas e interiores con presupuesto claro y trato cercano.",
-    "primary_action": {
-      "type": "phone",
-      "label": "Llamar ahora",
-      "value": "+34910000000"
-    },
-    "secondary_action": {
-      "type": "email",
-      "label": "Pedir presupuesto",
-      "value": "hola@reformasgarcia.example"
-    },
+    "eyebrow": "Real Café Madris · Valdemoro",
+    "title": "El bar de toda la vida, con el ambiente de siempre",
+    "description": "Tapas, raciones, desayunos y cafés en un bar mítico de Valdemoro. Cuando hay fútbol, aquí se vive en compañía.",
+    "primary_action": {"type": "phone", "label": "Llamar al bar", "value": "+34918080007"},
+    "secondary_action": {"type": "link", "label": "Ver la carta", "value": "/carta"},
     "benefits": [
-      {"title": "Presupuesto claro", "description": "Te explicamos el trabajo antes de empezar."},
-      {"title": "Trato directo", "description": "Hablas con la persona responsable del proyecto."},
-      {"title": "Trabajo local", "description": "Trabajamos en Valdemoro y municipios cercanos."}
+      {"title": "Desayunos y cafés", "description": "Empieza el día con tostadas, opciones dulces, café o infusión."},
+      {"title": "Tapas y raciones", "description": "Una carta para compartir con cañas, vinos y bebidas frías."},
+      {"title": "Fútbol y buen ambiente", "description": "Un punto de encuentro en Valdemoro para disfrutar los partidos importantes."}
     ],
     "faqs": [
-      {"question": "En que zonas trabajais?", "answer": "Trabajamos en Valdemoro, Pinto y Ciempozuelos."},
-      {"question": "Como solicito un presupuesto?", "answer": "Puedes llamarnos o escribirnos por email para contarnos tu proyecto."}
-    ]
-  },
-  "services_page": {
-    "slug": "servicios",
-    "title": "Servicios de reformas",
-    "description": "Conoce nuestros principales servicios de reformas.",
-    "services": [
-      {"title": "Reformas de bano", "description": "Renovacion completa de banos, sanitarios, revestimientos y fontaneria."},
-      {"title": "Reformas de cocina", "description": "Diseno y renovacion de cocinas funcionales y duraderas."},
-      {"title": "Reformas interiores", "description": "Pintura, suelos, distribucion y mejoras generales de viviendas."}
+      {"question": "¿Dónde está Bar Madris?", "answer": "Estamos en Calle de la Guardia Civil, 5, 28341 Valdemoro, Madrid, junto a la zona del Parque de las Víctimas del Terrorismo."},
+      {"question": "¿Qué se puede tomar en Bar Madris?", "answer": "Ofrecemos desayunos, cafés, cañas, tapas, raciones variadas, vinos, refrescos y servicio en terraza. Puedes consultar la carta completa en la web."},
+      {"question": "¿Es un sitio para ver el fútbol en Valdemoro?", "answer": "Bar Madris es conocido por su ambiente durante los partidos de fútbol importantes y por ser un lugar de encuentro en Valdemoro."}
     ]
   }
 }

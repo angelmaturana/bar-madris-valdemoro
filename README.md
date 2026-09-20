@@ -1,12 +1,12 @@
-# Local Web Generator
+# Bar Madris · Web local
 
 Starter minimo para crear webs locales de dos paginas, renderizadas en servidor y preparadas para SEO y Render.
 
 ## Incluye
 
 - FastAPI + Jinja2.
-- Pagina de inicio y pagina de servicios.
-- Contenido centralizado en `app/content/site.json`.
+- Pagina de inicio y carta del bar en `/carta`.
+- Contenido del negocio centralizado en `app/content/site.json` y la carta en `app/content/carta.json`.
 - SEO por pagina: title, description, canonical, Open Graph y Twitter Cards.
 - JSON-LD para el negocio, la pagina y las FAQ.
 - `robots.txt`, `sitemap.xml`, favicon y pagina 404.
@@ -26,11 +26,11 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 Abre `http://localhost:8000`.
 
-## Personalizar un sitio
+## Contenido
 
-1. Edita `app/content/site.json` con datos reales.
-2. Sustituye los recursos de `app/static/images/`.
-3. Ajusta las variables de color en `theme`.
+1. Edita `app/content/site.json` con los datos del local.
+2. Edita `app/content/carta.json` para actualizar la carta.
+3. Sustituye los recursos de `app/static/images/` si es necesario.
 4. Define `PUBLIC_SITE_URL` en Render.
 5. Ejecuta `pytest`.
 

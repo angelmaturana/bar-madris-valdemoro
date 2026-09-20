@@ -13,6 +13,19 @@ from .seo import absolute_url, faq_schema, page_schema
 
 BASE_DIR = Path(__file__).resolve().parent
 site_data = load_site()
+carta_path = BASE_DIR / "content" / "carta.json"
+with carta_path.open(encoding="utf-8") as file:
+    carta_data = json.load(file)
+menu_sections = []
+for section_name, section in carta_data["secciones"].items():
+    groups = []
+    if isinstance(section, list):
+        groups.append((None, section))
+    else:
+        for group_name, items in section.items():
+            if isinstance(items, list):
+                groups.append((group_name, items))
+    menu_sections.append({"name": section_name, "note": section.get("nota") if isinstance(section, dict) else None, "groups": groups})
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 templates.env.globals["absolute_url"] = absolute_url
 
@@ -46,18 +59,23 @@ async def home(request: Request):
         site_data["seo"]["title"],
         site_data["seo"]["description"],
     )
-    context.update({"request": request, "home": home_data, "services": site_data["services_page"]["services"]})
+    context.update({"request": request, "home": home_data})
     faq = faq_schema(home_data.get("faqs", []))
     if faq:
         context["structured_data"]["@graph"].append(faq)
     return templates.TemplateResponse(request=request, name="home.html", context=context)
 
 
-@app.get("/servicios", name="services")
-async def services(request: Request):
-    data = site_data["services_page"]
-    context = page_context(request, f"/{data['slug']}", data["title"], data["description"], "CollectionPage")
-    context.update({"request": request, "services_page": data})
+@app.get("/carta", name="menu")
+async def menu(request: Request):
+    context = page_context(
+        request,
+        "/carta",
+        "Carta de Bar Madris | Tapas, raciones y desayunos",
+        "Consulta la carta de Bar Madris en Valdemoro: tapas, raciones, cervezas, vinos, cafés y desayunos.",
+        "Menu",
+    )
+    context.update({"request": request, "carta": carta_data, "menu_sections": menu_sections})
     return templates.TemplateResponse(request=request, name="services.html", context=context)
 
 
@@ -81,7 +99,7 @@ async def sitemap(request: Request):
     site_url = public_site_url(str(request.url))
     namespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
     root = ElementTree.Element(f"{{{namespace}}}urlset")
-    for path in ("/", "/servicios"):
+    for path in ("/", "/carta"):
         entry = ElementTree.SubElement(root, f"{{{namespace}}}url")
         ElementTree.SubElement(entry, f"{{{namespace}}}loc").text = absolute_url(site_url, path)
     ElementTree.register_namespace("", namespace)

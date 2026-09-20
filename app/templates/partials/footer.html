@@ -1,10 +1,12 @@
 <footer class="site-footer">
-    <div>
-        <strong>{{ site.name }}</strong>
-        {% if site.address %}<span>{{ site.address.street }}, {{ site.address.city }}</span>{% endif %}
+    <div class="footer-business">
+        <span class="footer-business-name"><strong>Bar Madris</strong> - <a href="/carta"><strong>Ver Carta</strong></a></span>
+        <span>Telf: <a href="tel:+34918080007">918080007</a></span>
+        <span>Calle de la Guardia Civil, 5, 28341 Valdemoro</span>
     </div>
-    <div class="footer-contact">
-        {% if site.phone %}<a href="tel:{{ site.phone }}">{{ site.phone }}</a>{% endif %}
-        {% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+    <div class="footer-promo">
+        <span>¿Quieres una web como esta por 100 € al año?</span>
+        <span>Elaboración de QR y carta para tu bar o restaurante</span>
+        <a href="https://seovaldemoro.onrender.com/" target="_blank" rel="noopener">SEO Valdemoro</a>
     </div>
 </footer>
