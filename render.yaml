@@ -8,5 +8,9 @@ services:
     envVars:
       - key: PUBLIC_SITE_URL
         sync: false
-      - key: PYTHON_VERSION
-        value: 3.12
+      - key: KEEPALIVE_URL
+        sync: false
+      - key: KEEPALIVE_INTERVAL_SECONDS
+        value: "300"
+      - key: KEEPALIVE_TIMEOUT_SECONDS
+        value: "10"

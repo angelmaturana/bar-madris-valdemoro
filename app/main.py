@@ -1,4 +1,6 @@
 import json
+import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 from xml.etree import ElementTree
 
@@ -8,7 +10,12 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .config import load_site, public_site_url
+from .keepalive import KeepAliveClient, keep_alive_config
 from .seo import absolute_url, faq_schema, page_schema
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -29,7 +36,37 @@ for section_name, section in carta_data["secciones"].items():
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 templates.env.globals["absolute_url"] = absolute_url
 
-app = FastAPI(title=site_data["site"]["name"], docs_url=None, redoc_url=None)
+
+keepalive_client: KeepAliveClient | None = None
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Gestión del ciclo de vida de la aplicación.
+
+    Arranca el cliente de keepalive solo cuando está configurada la URL
+    mediante la variable de entorno ``KEEPALIVE_URL``. Si no está definida,
+    el keepalive se mantiene desactivado (no afecta a local ni a tests).
+    """
+    global keepalive_client
+    config = keep_alive_config()
+    if config["enabled"]:
+        keepalive_client = KeepAliveClient(
+            url=config["url"],
+            interval=config["interval"],
+            timeout=config["timeout"],
+        )
+        await keepalive_client.start()
+    else:
+        logger.info("keepalive desactivado: KEEPALIVE_URL no definida")
+    try:
+        yield
+    finally:
+        if keepalive_client is not None:
+            await keepalive_client.stop()
+
+
+app = FastAPI(title=site_data["site"]["name"], docs_url=None, redoc_url=None, lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 
 
