@@ -22,6 +22,19 @@
 
     <!-- Envolvemos el resto en page-width para que mantenga el ancho igual que la carta -->
     <div class="page-width">
+        <!-- Sobre nosotros / historia -->
+        {% if about %}<section class="section" aria-labelledby="about-title">
+            <div class="about-grid">
+                <div>
+                    <p class="eyebrow">{{ about.eyebrow }}</p>
+                    <h2 id="about-title">{{ about.title }}</h2>
+                    <p class="lead" style="max-width:700px">{{ about.description }}</p>
+                </div>
+                {% if about.highlights %}<ul class="highlights">{% for item in about.highlights %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
+            </div>
+        </section>{% endif %}
+
+        <!-- Beneficios -->
         <section class="section" aria-labelledby="benefits-title">
             <p class="eyebrow">De primera hora hasta la última ronda</p>
             <h2 id="benefits-title">Sabor local, mesa compartida</h2>
@@ -30,16 +43,31 @@
             </div>
         </section>
 
-        <section class="section dark-band" aria-labelledby="services-title">
+        <!-- Servicios -->
+        {% if services %}<section class="section dark-band" aria-labelledby="services-title">
             <div>
-                <p class="eyebrow">Lo que encontrarás</p>
+                <p class="eyebrow">{{ services.eyebrow }}</p>
                 <div class="section-heading">
-                    <h2 id="services-title">Una carta para volver</h2>
+                    <h2 id="services-title">{{ services.title }}</h2>
                     <a class="button secondary nav-action btn-amarillo" href="/carta">Ver la carta</a>
                 </div>
-                <div class="service-grid">{% for benefit in home.benefits %}<article><h3>{{ benefit.title }}</h3><p>{{ benefit.description }}</p></article>{% endfor %}</div>
+                <p class="lead" style="margin-bottom:28px">{{ services.description }}</p>
+                <div class="service-grid">{% for item in services.service_items %}<article><h3>{{ item.title }}</h3><p>{{ item.description }}</p></article>{% endfor %}</div>
             </div>
-        </section>
+        </section>{% endif %}
+
+        <!-- Localización -->
+        {% if location %}<section class="section" aria-labelledby="location-title">
+            <div class="about-grid">
+                <div>
+                    <p class="eyebrow">Calle de la Guardia Civil, 5</p>
+                    <h2 id="location-title">{{ location.title }}</h2>
+                    <p class="lead" style="max-width:700px">{{ location.description }}</p>
+                    {% if location.nearby %}<ul class="highlights">{% for n in location.nearby %}<li>Próximo a: {{ n }}</li>{% endfor %}</ul>{% endif %}
+                </div>
+                {% if site.map_url %}<a class="map-cta" href="{{ site.map_url }}" target="_blank" rel="noopener">Ver en Google Maps</a>{% endif %}
+            </div>
+        </section>{% endif %}
 
         {% if home.faqs %}<section class="section faq" aria-labelledby="faq-title"><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Antes de empezar</h2>{% for faq in home.faqs %}<details><summary>{{ faq.question }}</summary><p>{{ faq.answer }}</p></details>{% endfor %}</section>{% endif %}
 

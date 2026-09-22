@@ -96,7 +96,7 @@ async def home(request: Request):
         site_data["seo"]["title"],
         site_data["seo"]["description"],
     )
-    context.update({"request": request, "home": home_data})
+    context.update({"request": request, "home": home_data, "about": site_data.get("about"), "services": site_data.get("services"), "location": site_data.get("location")})
     faq = faq_schema(home_data.get("faqs", []))
     if faq:
         context["structured_data"]["@graph"].append(faq)
@@ -108,9 +108,9 @@ async def menu(request: Request):
     context = page_context(
         request,
         "/carta",
-         "Carta de Bar Madris | Hamburguesas, raciones y bocadillos",
-         "Consulta la carta de Bar Madris en Valdemoro: hamburguesas, sándwiches, tostas, raciones y bocadillos.",
-        "Menu",
+         "Carta de Bar Madris | Hamburguesas, raciones, tapas y bocadillos",
+          "Consulta la carta de Bar Madris en Valdemoro: hamburguesas, sándwiches, tostas, tapas, raciones y bocadillos. El mejor bar de tapas de Valdemoro.",
+         "Menu",
     )
     context.update({"request": request, "carta": carta_data, "menu_sections": menu_sections})
     return templates.TemplateResponse(request=request, name="services.html", context=context)

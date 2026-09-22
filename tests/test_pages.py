@@ -14,6 +14,36 @@ def test_home_is_server_rendered():
     assert 'application/ld+json' in response.text
 
 
+def test_home_has_about_and_location_sections():
+    response = client.get("/")
+    text = response.text
+    assert "La historia de Bar Madris" in text
+    assert "Cómo llegar a Bar Madris" in text
+    assert "Ver en Google Maps" in text
+
+
+def test_home_json_ld_has_local_seo():
+    response = client.get("/")
+    assert "openingHoursSpecification" in response.text
+    assert "areaServed" in response.text
+    assert "serviceType" in response.text
+    assert "BarOrPub" in response.text
+
+
+def test_home_has_local_keywords():
+    response = client.get("/")
+    text = response.text.lower()
+    assert "valdemoro" in text
+    assert "bar de tapas" in text
+    assert "dónde ver el fútbol" in text or "fútbol en valdemoro" in text
+
+
+def test_home_has_keywords_meta():
+    response = client.get("/")
+    assert 'name="keywords"' in response.text
+    assert "valdemoro" in response.text.lower()
+
+
 def test_menu_page_is_indexable():
     response = client.get("/carta")
     assert response.status_code == 200

@@ -77,10 +77,19 @@ h3 { margin-bottom: 10px; color: var(--white); font-size: 1.35rem; font-weight: 
 .faq details { max-width: 800px; padding: 17px 0; border-bottom: 1px solid var(--line); }
 .faq summary { cursor: pointer; font-weight: 700; }
 .faq details p { margin: 10px 0 0; color: var(--muted); }
+
+.about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: start; }
+.highlights { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.highlights li { position: relative; padding-left: 26px; color: var(--muted); }
+.highlights li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+.map-cta { display: inline-block; align-self: start; margin-top: 4px; color: var(--white); background: var(--accent); border: 1px solid var(--accent); padding: 12px 20px; font: 700 .8rem Arial, sans-serif; text-transform: uppercase; }
+.map-cta:hover, .map-cta:focus-visible { background: var(--primary); color: var(--secondary); }
+
 .inner-hero { padding-top: 90px; padding-bottom: 55px; border-bottom: 1px solid var(--line); }
 .inner-hero h1 { max-width: 800px; }
-.menu-intro { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 60px; }
-.menu-intro p { max-width: 300px; margin: 0; color: var(--muted); text-align: right; }
+    .menu-intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: 30px; align-items: end; margin-bottom: 60px; }
+    .menu-intro-text { max-width: 560px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .menu-intro p { max-width: 300px; margin: 0; color: var(--muted); text-align: right; }
 .menu-section { margin-bottom: 60px; }
 .menu-section > h3 { padding-bottom: 12px; border-bottom: 2px solid var(--accent); color: var(--primary); text-transform: capitalize; }
 .menu-note, .allergen-note { color: var(--muted); font-size: .9rem; }
@@ -159,10 +168,12 @@ h3 { margin-bottom: 10px; color: var(--white); font-size: 1.35rem; font-weight: 
     }
 
     /* Contacto y Footer */
-    .contact-strip, .site-footer, .menu-intro {
+    .contact-strip, .site-footer, .menu-intro, .about-grid {
         align-items: flex-start;
         flex-direction: column;
     }
+    .about-grid { grid-template-columns: 1fr; }
+    .highlights { grid-template-columns: 1fr; }
     .contact-strip {
         margin-top: 60px;
         margin-bottom: 60px;

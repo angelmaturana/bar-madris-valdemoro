@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{ theme.secondary }}">
     <meta name="description" content="{{ page_description }}">
+    <meta name="keywords" content="{{ seo.get('keywords', '') }}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="icon" href="{{ absolute_url(site_url, '/static/images/favicon.svg') }}" type="image/svg+xml">
@@ -15,6 +16,8 @@
     <meta property="og:description" content="{{ page_description }}">
     <meta property="og:url" content="{{ canonical_url }}">
     <meta property="og:image" content="{{ absolute_url(site_url, seo.og_image) }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ page_title }}">
     <meta name="twitter:description" content="{{ page_description }}">

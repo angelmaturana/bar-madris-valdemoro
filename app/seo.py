@@ -7,13 +7,60 @@ def absolute_url(site_url: str, path: str) -> str:
     return f"{site_url}{path if path.startswith('/') else '/' + path}"
 
 
+WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def _day_indices(day_range: str) -> list[str]:
+    """Convierte algo como 'Monday-Friday' o 'Saturday' en lista de días."""
+    parts = [d.strip() for d in day_range.split(",")]
+    days: list[str] = []
+    for part in parts:
+        if "-" in part:
+            start, end = part.split("-", 1)
+            i = WEEKDAYS.index(start.strip().strip("[]"))
+            j = WEEKDAYS.index(end.strip().strip("[]"))
+            days.extend(WEEKDAYS[i : j + 1])
+        else:
+            days.append(part.strip())
+    return days
+
+
+def opening_hours_specification(spec: list[dict[str, Any]]) -> list[dict[str, Any]] | None:
+    """Genera openingHoursSpecification a partir de un listado estructurado."""
+    out: list[dict[str, Any]] = []
+    for item in spec:
+        days = item.get("day")
+        if isinstance(days, str):
+            day_list = _day_indices(days)
+        elif isinstance(days, list):
+            day_list = []
+            for d in days:
+                if isinstance(d, str) and "-" in d:
+                    day_list.extend(_day_indices(d))
+                else:
+                    day_list.append(d)
+        else:
+            day_list = []
+        for day in day_list:
+            entry: dict[str, Any] = {"@type": "OpeningHoursSpecification", "dayOfWeek": day}
+            if item.get("open"):
+                entry["opens"] = item["open"]
+            if item.get("close"):
+                entry["closes"] = item["close"]
+            out.append(entry)
+    return out or None
+
+
 def business_schema(site: dict[str, Any], site_url: str) -> dict[str, Any]:
     schema: dict[str, Any] = {
         "@type": site.get("business_type", "LocalBusiness"),
         "@id": f"{site_url}#business",
         "name": site["name"],
+        "alternateName": site.get("alternate_name"),
         "description": site["description"],
         "url": site_url,
+        "serviceType": "bar, cafetería, tapas, desayunos, raciones",
+        "priceRange": "moderado",
     }
     for key in ("logo", "image"):
         if site.get(key):
@@ -32,10 +79,14 @@ def business_schema(site: dict[str, Any], site_url: str) -> dict[str, Any]:
             "addressCountry": address.get("country", "ES"),
         }
     if site.get("service_area"):
-        schema["areaServed"] = [{"@type": "City", "name": area} for area in site["service_area"]]
+        schema["areaServed"] = [{"@type": "Place", "name": area, "address": {"addressLocality": area, "addressRegion": "Madrid", "addressCountry": "ES"}} for area in site["service_area"]]
     if site.get("map_url"):
-        schema["hasMap"] = site["map_url"]
-    if site.get("opening_hours"):
+        schema["hasMap"] = {"@type": "Map", "url": site["map_url"]}
+    if site.get("opening_hours_specification"):
+        spec = opening_hours_specification(site["opening_hours_specification"])
+        if spec:
+            schema["openingHoursSpecification"] = spec
+    elif site.get("opening_hours"):
         schema["openingHours"] = site["opening_hours"]
     if site.get("amenities"):
         schema["amenityFeature"] = [{"@type": "LocationFeatureSpecification", "name": item, "value": True} for item in site["amenities"]]
@@ -76,3 +127,4 @@ def faq_schema(faqs: list[dict[str, str]]) -> dict[str, Any] | None:
             for item in faqs
         ],
     }
+
