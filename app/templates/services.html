@@ -4,13 +4,6 @@
     <section class="inner-hero page-width"><p class="eyebrow">{{ site.name }} · {{ carta.restaurante.eslogan }}</p><h1>Carta de Bar Madris</h1><p class="lead">Hamburguesas, sándwiches, tostas, raciones, tapas y bocadillos en Valdemoro. El bar de tapas con más ambiente de la ciudad.</p></section>
 
     <section class="section page-width menu-page" aria-labelledby="menu-title">
-        <div class="menu-intro">
-            <div>
-                <h2 id="menu-title">Para pedir y compartir</h2>
-                <p class="menu-intro-text">En Bar Madris, el mejor bar de tapas en Valdemoro, preparamos nuestra carta pensada para compartir. Desde las hamburguesas de 200 gramos hasta las raciones más sabrosas, pasando por bocadillos, tostas y tapas de siempre. Cada plato se acompaña perfectamente con una caña fresca o un vino de la casa. Consulta nuestra carta completa a continuación.</p>
-            </div>
-            <p>{{ carta.restaurante.direccion }}<br><a href="{{ site.map_url }}" target="_blank" rel="noopener">Ver ubicación</a></p>
-        </div>
         {% for section in menu_sections %}
         <section class="menu-section" aria-labelledby="menu-{{ loop.index }}">
             <h3 id="menu-{{ loop.index }}">{{ section.name | replace('_', ' ') | title }}</h3>
