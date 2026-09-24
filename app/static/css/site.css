@@ -35,6 +35,16 @@ nav .nav-action.no-hover:focus-visible,
     color: #000000 !important;
 }
 
+.pdf-btn {
+    margin-top: 20px;
+    gap: 8px;
+}
+.pdf-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
 .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(250px, .6fr); gap: 40px; min-height: 650px; padding-top: clamp(80px, 12vw, 150px); padding-bottom: clamp(70px, 10vw, 120px); isolation: isolate; }
 .hero::before { position: absolute; z-index: -2; inset: 0; content: ''; background: linear-gradient(90deg, rgba(17,16,13,.93) 0%, rgba(17,16,13,.72) 55%, rgba(17,16,13,.4)), var(--hero-image) center 38% / cover; }
 .hero::after { position: absolute; z-index: -1; right: 0; bottom: 0; left: 0; height: 7px; content: ''; background: var(--accent); }
