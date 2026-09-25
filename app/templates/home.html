@@ -49,10 +49,10 @@
                 <p class="eyebrow">{{ services.eyebrow }}</p>
                 <div class="section-heading">
                     <h2 id="services-title">{{ services.title }}</h2>
-                    <a class="button secondary nav-action btn-amarillo" href="/carta">Ver la carta</a>
                 </div>
                 <p class="lead" style="margin-bottom:28px">{{ services.description }}</p>
                 <div class="service-grid">{% for item in services.service_items %}<article><h3>{{ item.title }}</h3><p>{{ item.description }}</p></article>{% endfor %}</div>
+                <p style="margin-top:28px"><a href="/carta">Ver la carta</a></p>
             </div>
         </section>{% endif %}
 

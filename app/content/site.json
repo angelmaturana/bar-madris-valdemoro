@@ -54,7 +54,9 @@
       {"title": "Desayunos y cafés", "description": "Empieza el día como en casa con tostadas, café recién hecho o infusión, y opciones dulces. Horario de apertura desde las 06:30/07:00 de la mañana."},
       {"title": "Tapas y raciones", "description": "Raciones variadas, pinchos, bocadillos y tapas para compartir: jamón, queso, boquerones, carne de pincho, oreja en plancha, calamares, papas bravas y más."},
       {"title": "Terraza exterior", "description": "Disfruta de nuestro espacio al aire libre, ideal para tomar el sol o el fresquito de la tarde en Valdemoro."},
-      {"title": "Fútbol y ambición", "description": "Ambiente garantizado durante los partidos de fútbol importantes. Bar Madris es el bar de Valdemoro para vivir las grandes citas del fútbol."}
+      {"title": "Fútbol y ambición", "description": "Ambiente garantizado durante los partidos de fútbol importantes. Bar Madris es el bar de Valdemoro para vivir las grandes citas del fútbol."},
+      {"title": "Hamburguesas y platos combinados", "description": "Nuestras hamburguesas de 200 gramos y platos combinados son la opción contundente y sabrosa para una comida sin prisa en buena compañía."},
+      {"title": "Para grupos y celebraciones", "description": "Reúne a los tuyos y disfruta de nuestra carta para compartir en el mejor ambiente de Valdemoro, desde una caña hasta la última ronda."}
     ]
   },
   "location": {
